@@ -6,65 +6,76 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: white;
+            background: #e9eef3;
             padding: 20px;
         }
 
         .letterpad {
             width: 800px;
+            min-height: 1000px;
             margin: auto;
-            background: white;
+            background: #fffdf5;
             padding: 40px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
         }
 
+        /* Header layout */
         .header {
-            text-align: center;
+            display: flex;
+            align-items: center;
             border-bottom: 2px solid #000;
             padding-bottom: 15px;
             margin-bottom: 20px;
         }
 
         .logo {
-            width: 100px;
-            margin-bottom: 10px;
+            width: 90px;
         }
 
         .company-name {
-            font-size: 30px;
+            flex: 1;
+            font-size: 38px;
             font-weight: bold;
             letter-spacing: 1px;
             color: red;
+            margin-left: 20px;
+        }
+
+        .right-info {
+            text-align: right;
         }
 
         .person-name {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: bold;
-            margin-top: 5px;
         }
 
         .designation {
-            font-size: 16px;
-            margin-top: 3px;
+            font-size: 14px;
         }
 
         .date {
             text-align: right;
             margin-bottom: 20px;
-        }
-
-        .subject {
-            margin-bottom: 15px;
+            font-weight: bold;
         }
 
         .content {
-            min-height: 300px;
+            flex: 1;
             border: 1px solid #ccc;
-            padding: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            font-size: 16px;
         }
 
         .footer {
-            margin-top: 40px;
+            border-top: 1px solid #000;
+            padding-top: 10px;
+            text-align: center;
+            font-size: 14px;
+            line-height: 1.6;
         }
 
         .btn {
@@ -72,11 +83,12 @@
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
+            align-self: center;
         }
 
         @media print {
-            .btn {
-                display: none;
+            .btn, .print-hide {
+                display: none !important;
             }
             body {
                 background: white;
@@ -84,6 +96,7 @@
             .letterpad {
                 box-shadow: none;
                 width: 100%;
+                min-height: auto;
             }
         }
     </style>
@@ -92,26 +105,36 @@
 
 <div class="letterpad">
     <div class="header">
-        <!-- Change logo.png to your actual logo file name -->
+        <!-- Left: Logo -->
         <img src="static/images/sangeetha builders logo.jpeg" alt="Logo" class="logo">
 
-        <div class="company-name" >SANGEETHA BUILDERS</div>
-        <div class="person-name">S. Arusamy, B.Com, DCA</div>
-        <div class="designation">AutoCAD & Revit Designer</div>
+        <!-- Center: Company Name -->
+        <div class="company-name">SANGEETHA BUILDERS</div>
+
+        <!-- Right: Name & Designation -->
+        <div class="right-info">
+            <div class="person-name">S. Arusamy, B.Com, DCA</div>
+            <div class="designation">AutoCAD & Revit Designer</div>
+        </div>
     </div>
 
     <div class="date">
-        Date:
+        Date: <span id="todayDate"></span>
     </div>
-
-
 
     <div class="content" contenteditable="true">
-        Type your letter content here...
+
     </div>
 
+    <div class="footer">
+        <div><strong>Phone:</strong> 9942644416, 9487614416</div>
+        <div><strong>Email:</strong> sangeethabuilders91@gmail.com</div>
+        <div><strong>Address:</strong> Valparai Main Road, Vedachandur, Angalakuruchi</div>
+    </div>
 
-    <button class="btn" onclick="window.print()">Print Letter</button>
+    <div class="print-hide">
+        <button class="btn" onclick="window.print()">Print Letter</button>
+    </div>
 </div>
 
 <script>
@@ -120,4 +143,5 @@
 </script>
 
 </body>
+
 </html>
