@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sangeetha Builders - Letter Pad</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #e9eef3;
+            padding: 20px;
+        }
+
+        .letterpad {
+            width: 800px;
+            min-height: 1000px;
+            margin: auto;
+            background: #fffdf5;
+            padding: 40px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header layout */
+        .header {
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid #000;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            width: 90px;
+        }
+
+        .company-name {
+            flex: 1;
+            font-size: 38px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: red;
+            margin-left: 20px;
+        }
+
+        .right-info {
+            text-align: right;
+        }
+
+        .person-name {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .designation {
+            font-size: 14px;
+        }
+
+        .date {
+            text-align: right;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .content {
+            flex: 1;
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer {
+            border-top: 1px solid #000;
+            padding-top: 10px;
+            text-align: center;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            align-self: center;
+        }
+
+        @media print {
+            .btn, .print-hide {
+                display: none !important;
+            }
+            body {
+                background: white;
+            }
+            .letterpad {
+                box-shadow: none;
+                width: 100%;
+                min-height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="letterpad">
+    <div class="header">
+        <!-- Left: Logo -->
+        <img src="static/images/sangeetha builders logo.jpeg" alt="Logo" class="logo">
+
+        <!-- Center: Company Name -->
+        <div class="company-name">SANGEETHA BUILDERS</div>
+
+        <!-- Right: Name & Designation -->
+        <div class="right-info">
+            <div class="person-name">S. Arusamy, B.Com, DCA</div>
+            <div class="designation">AutoCAD & Revit Designer</div>
+        </div>
+    </div>
+
+    <div class="date">
+        Date: <span id="todayDate"></span>
+    </div>
+
+    <div class="content" contenteditable="true">
+
+    </div>
+
+    <div class="footer">
+        <div><strong>Phone:</strong> 9942644416, 9487614416</div>
+        <div><strong>Email:</strong> sangeethabuilders91@gmail.com</div>
+        <div><strong>Address:</strong> Valparai Main Road, Vedachandur, Angalakuruchi</div>
+    </div>
+
+    <div class="print-hide">
+        <button class="btn" onclick="window.print()">Print Letter</button>
+    </div>
+</div>
+
+<script>
+    const today = new Date();
+    document.getElementById("todayDate").innerText = today.toLocaleDateString();
+</script>
+
+</body>
+
+</html>
