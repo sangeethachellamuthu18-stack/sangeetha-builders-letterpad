@@ -1,4 +1,4 @@
 from django.shortcuts import render
 
 def index(request):
-    return render(request, 'letterpad.html')
+    return render(request, 'sangeethabuilders/letterpad.html')

@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Letter Pad</title>
+    <title>Sangeetha Builders - Letter Pad</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: #f2f2f2;
+            background: white;
             padding: 20px;
         }
 
@@ -21,17 +21,31 @@
         .header {
             text-align: center;
             border-bottom: 2px solid #000;
-            padding-bottom: 10px;
+            padding-bottom: 15px;
             margin-bottom: 20px;
         }
 
-        .company-name {
-            font-size: 28px;
-            font-weight: bold;
+        .logo {
+            width: 100px;
+            margin-bottom: 10px;
         }
 
-        .company-details {
-            font-size: 14px;
+        .company-name {
+            font-size: 30px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: red;
+        }
+
+        .person-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .designation {
+            font-size: 16px;
+            margin-top: 3px;
         }
 
         .date {
@@ -40,8 +54,7 @@
         }
 
         .subject {
-            font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .content {
@@ -79,44 +92,31 @@
 
 <div class="letterpad">
     <div class="header">
-        <div class="company-name">Sangeetha Builders</div>
-        <div class="company-details">
-            2D & 3D Design, Interior, Construction<br>
-            Phone: 9942644416, 9487614416
-        </div>
+        <!-- Change logo.png to your actual logo file name -->
+        <img src="static/images/sangeetha builders logo.jpeg" alt="Logo" class="logo">
+
+        <div class="company-name" >SANGEETHA BUILDERS</div>
+        <div class="person-name">S. Arusamy, B.Com, DCA</div>
+        <div class="designation">AutoCAD & Revit Designer</div>
     </div>
 
     <div class="date">
-        Date: <span id="todayDate"></span>
+        Date:
     </div>
 
-    <div class="subject">
-        Subject: <input type="text" style="width: 70%;" placeholder="Enter subject here">
-    </div>
 
-    <p>Dear Sir/Madam,</p>
 
     <div class="content" contenteditable="true">
         Type your letter content here...
     </div>
 
-    <div class="footer">
-        <p>Thanking you,</p>
-        <p>Yours sincerely,</p>
-        <p><strong>Sangeetha Builders</strong></p>
-    </div>
 
-    <button class="btn" onclick="printLetter()">Print Letter</button>
+    <button class="btn" onclick="window.print()">Print Letter</button>
 </div>
 
 <script>
-    // Set today's date
     const today = new Date();
     document.getElementById("todayDate").innerText = today.toLocaleDateString();
-
-    function printLetter() {
-        window.print();
-    }
 </script>
 
 </body>
