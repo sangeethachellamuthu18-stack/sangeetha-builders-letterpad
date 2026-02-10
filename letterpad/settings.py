@@ -25,7 +25,12 @@ SECRET_KEY = 'django-insecure-b2#-k=y+4p&tte&wm3zcy$)adoxsb8vb@$6-wa@67h^&t+errw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "sangeetha-builders-letterpad.onrender.com",
+    "localhost",
+    "127.0.0.1",
+]
+
 
 
 # Application definition
