@@ -11,10 +11,10 @@
         }
 
         .letterpad {
-            width: 800px;
-            min-height: 1000px;
+            width: 794px;              /* A4 width approx */
+            min-height: 1123px;        /* A4 height approx */
             margin: auto;
-            background: #fffdf5;
+            background: #ffffff;
             padding: 40px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             display: flex;
@@ -23,11 +23,13 @@
 
         /* Header layout */
         .header {
-            display: flex;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
             align-items: center;
             border-bottom: 2px solid #000;
             padding-bottom: 15px;
             margin-bottom: 20px;
+            column-gap: 20px;
         }
 
         .logo {
@@ -35,25 +37,25 @@
         }
 
         .company-name {
-            flex: 1;
-            font-size: 38px;
+            text-align: center;
+            font-size: 32px;
             font-weight: bold;
             letter-spacing: 1px;
             color: red;
-            margin-left: 20px;
         }
 
         .right-info {
             text-align: right;
+            font-size: 14px;
         }
 
         .person-name {
-            font-size: 16px;
             font-weight: bold;
+            font-size: 15px;
         }
 
         .designation {
-            font-size: 14px;
+            font-size: 13px;
         }
 
         .date {
@@ -74,7 +76,7 @@
             border-top: 1px solid #000;
             padding-top: 10px;
             text-align: center;
-            font-size: 14px;
+            font-size: 13px;
             line-height: 1.6;
         }
 
@@ -86,17 +88,20 @@
             align-self: center;
         }
 
+        /* Print settings */
         @media print {
             .btn, .print-hide {
                 display: none !important;
             }
             body {
                 background: white;
+                padding: 0;
             }
             .letterpad {
                 box-shadow: none;
                 width: 100%;
                 min-height: auto;
+                padding: 30px;
             }
         }
     </style>
@@ -106,7 +111,7 @@
 <div class="letterpad">
     <div class="header">
         <!-- Left: Logo -->
-        <img src="images/sangeetha-builders-logo.jpeg" alt="Logo" class="logo">
+        <img src="static/images/sangeetha builders logo.jpeg" alt="Logo" class="logo">
 
         <!-- Center: Company Name -->
         <div class="company-name">SANGEETHA BUILDERS</div>
@@ -123,7 +128,7 @@
     </div>
 
     <div class="content" contenteditable="true">
-
+        Type your letter content here...
     </div>
 
     <div class="footer">
@@ -143,5 +148,4 @@
 </script>
 
 </body>
-
 </html>
