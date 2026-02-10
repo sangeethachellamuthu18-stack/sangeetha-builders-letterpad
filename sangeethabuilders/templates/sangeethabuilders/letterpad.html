@@ -17,8 +17,8 @@
             background: #fffdf5;
             padding: 40px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            display: flex;
-            flex-direction: column;
+            box-sizing: border-box;
+            position: relative;
         }
 
         /* Header layout */
@@ -27,28 +27,35 @@
             align-items: center;
             border-bottom: 2px solid #000;
             padding-bottom: 15px;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
 
         .logo {
-            width: 90px;
+            width: 130px;   /* Bigger logo */
+            height: auto;
+        }
+
+        .header-text {
+            flex: 1;
+            margin-left: 15px;
         }
 
         .company-name {
-            flex: 1;
-            font-size: 38px;
+            font-size: 46px;
             font-weight: bold;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             color: red;
-            margin-left: 20px;
+            line-height: 1.1;
+            white-space: nowrap; /* Keep in one line */
         }
 
-        .right-info {
+        .right-lines {
             text-align: right;
+            margin-top: 5px;
         }
 
-        .person-name {
-            font-size: 16px;
+        .owner-name {
+            font-size: 18px;
             font-weight: bold;
         }
 
@@ -63,11 +70,11 @@
         }
 
         .content {
-            flex: 1;
             border: 1px solid #ccc;
             padding: 15px;
-            margin-bottom: 20px;
+            margin-bottom: 120px;
             font-size: 16px;
+            min-height: 500px;
         }
 
         .footer {
@@ -76,6 +83,10 @@
             text-align: center;
             font-size: 14px;
             line-height: 1.6;
+            position: absolute;
+            bottom: 40px;
+            left: 40px;
+            right: 40px;
         }
 
         .btn {
@@ -83,20 +94,38 @@
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
-            align-self: center;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
 
+        /* PRINT FIX */
         @media print {
             .btn, .print-hide {
                 display: none !important;
             }
+
             body {
                 background: white;
+                padding: 0;
             }
+
             .letterpad {
                 box-shadow: none;
                 width: 100%;
-                min-height: auto;
+                min-height: 100%;
+                margin: 0;
+            }
+
+            .footer {
+                position: fixed;
+                bottom: 20mm;
+                left: 20mm;
+                right: 20mm;
+            }
+
+            .content {
+                margin-bottom: 120px;
             }
         }
     </style>
@@ -105,16 +134,19 @@
 
 <div class="letterpad">
     <div class="header">
-        <!-- Left: Logo -->
+        <!-- Logo -->
         <img src="static/images/sangeetha builders logo.jpeg" alt="Logo" class="logo">
 
-        <!-- Center: Company Name -->
-        <div class="company-name">SANGEETHA BUILDERS</div>
+        <!-- Text Block -->
+        <div class="header-text">
+            <!-- Company name in one line -->
+            <div class="company-name">SANGEETHA BUILDERS</div>
 
-        <!-- Right: Name & Designation -->
-        <div class="right-info">
-            <div class="person-name">S. Arusamy, B.Com, DCA</div>
-            <div class="designation">AutoCAD & Revit Designer</div>
+            <!-- Right aligned name & designation on next lines -->
+            <div class="right-lines">
+                <div class="owner-name">S. Arusamy, B.Com, DCA</div>
+                <div class="designation">AutoCAD & Revit Designer</div>
+            </div>
         </div>
     </div>
 
@@ -123,7 +155,7 @@
     </div>
 
     <div class="content" contenteditable="true">
-
+        <!-- Type your letter here -->
     </div>
 
     <div class="footer">
@@ -143,5 +175,4 @@
 </script>
 
 </body>
-
 </html>
