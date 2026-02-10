@@ -31,7 +31,7 @@
         }
 
         .logo {
-            width: 130px;   /* Bigger logo */
+            width: 130px;
             height: auto;
         }
 
@@ -46,7 +46,7 @@
             letter-spacing: 1.5px;
             color: red;
             line-height: 1.1;
-            white-space: nowrap; /* Keep in one line */
+            white-space: nowrap; /* keep in one line */
         }
 
         .right-lines {
@@ -72,11 +72,12 @@
         .content {
             border: 1px solid #ccc;
             padding: 15px;
-            margin-bottom: 120px;
             font-size: 16px;
             min-height: 500px;
+            margin-bottom: 160px; /* space for footer */
         }
 
+        /* Footer */
         .footer {
             border-top: 1px solid #000;
             padding-top: 10px;
@@ -87,22 +88,28 @@
             bottom: 40px;
             left: 40px;
             right: 40px;
+            background: #fffdf5;
         }
 
-        .btn {
-            margin-top: 20px;
-            padding: 10px 20px;
+        /* Floating Print Button */
+        #printBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 12px 24px;
             font-size: 16px;
             cursor: pointer;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
+            z-index: 9999;
+            background: #d32f2f;
+            color: white;
+            border: none;
+            border-radius: 5px;
         }
 
-        /* PRINT FIX */
+        /* PRINT SETTINGS */
         @media print {
-            .btn, .print-hide {
-                display: none !important;
+            #printBtn {
+                display: none !important; /* hide button when printing */
             }
 
             body {
@@ -122,10 +129,11 @@
                 bottom: 20mm;
                 left: 20mm;
                 right: 20mm;
+                background: white;
             }
 
             .content {
-                margin-bottom: 120px;
+                margin-bottom: 160px; /* keep space for footer */
             }
         }
     </style>
@@ -139,10 +147,7 @@
 
         <!-- Text Block -->
         <div class="header-text">
-            <!-- Company name in one line -->
             <div class="company-name">SANGEETHA BUILDERS</div>
-
-            <!-- Right aligned name & designation on next lines -->
             <div class="right-lines">
                 <div class="owner-name">S. Arusamy, B.Com, DCA</div>
                 <div class="designation">AutoCAD & Revit Designer</div>
@@ -163,11 +168,10 @@
         <div><strong>Email:</strong> sangeethabuilders91@gmail.com</div>
         <div><strong>Address:</strong> Valparai Main Road, Vedachandur, Angalakuruchi</div>
     </div>
-
-    <div class="print-hide">
-        <button class="btn" onclick="window.print()">Print Letter</button>
-    </div>
 </div>
+
+<!-- Floating Print Button -->
+<button id="printBtn" onclick="window.print()">Print Letter</button>
 
 <script>
     const today = new Date();
