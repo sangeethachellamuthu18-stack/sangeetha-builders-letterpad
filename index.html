@@ -11,25 +11,22 @@
         }
 
         .letterpad {
-            width: 794px;              /* A4 width approx */
-            min-height: 1123px;        /* A4 height approx */
+            width: 800px;
+            min-height: 1000px;
             margin: auto;
-            background: #ffffff;
+            background: #fffdf5;
             padding: 40px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            display: flex;
-            flex-direction: column;
+            position: relative; /* important for footer positioning */
         }
 
         /* Header layout */
         .header {
-            display: grid;
-            grid-template-columns: auto 1fr auto;
+            display: flex;
             align-items: center;
             border-bottom: 2px solid #000;
             padding-bottom: 15px;
             margin-bottom: 20px;
-            column-gap: 20px;
         }
 
         .logo {
@@ -37,25 +34,27 @@
         }
 
         .company-name {
-            text-align: center;
-            font-size: 32px;
+            flex: 1;
+            font-size: 28px;
             font-weight: bold;
             letter-spacing: 1px;
             color: red;
+            margin-left: 20px;
         }
 
         .right-info {
             text-align: right;
-            font-size: 14px;
         }
 
         .person-name {
+            font-size: 16px;
             font-weight: bold;
-            font-size: 15px;
+            line-height: 1.4;
         }
 
         .designation {
-            font-size: 13px;
+            font-size: 14px;
+            line-height: 1.4;
         }
 
         .date {
@@ -65,7 +64,7 @@
         }
 
         .content {
-            flex: 1;
+            min-height: 600px; /* fixed big height so footer stays down */
             border: 1px solid #ccc;
             padding: 15px;
             margin-bottom: 20px;
@@ -76,7 +75,7 @@
             border-top: 1px solid #000;
             padding-top: 10px;
             text-align: center;
-            font-size: 13px;
+            font-size: 14px;
             line-height: 1.6;
         }
 
@@ -85,7 +84,9 @@
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
-            align-self: center;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         /* Print settings */
@@ -101,7 +102,9 @@
                 box-shadow: none;
                 width: 100%;
                 min-height: auto;
-                padding: 30px;
+            }
+            .content {
+                min-height: 700px; /* keep space so footer doesn't jump up */
             }
         }
     </style>
