@@ -1,167 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Sangeetha Builders - Letter Pad</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #e9eef3;
-            padding: 20px;
-        }
+<meta charset="UTF-8">
+<title>Sangeetha Builders - Letter Pad</title>
 
-        .letterpad {
-            width: 800px;
-            min-height: 1000px;
-            margin: auto;
-            background: #fffdf5;
-            padding: 40px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            box-sizing: border-box;
-            position: relative;
-        }
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #e9eef3;
+    padding: 20px;
+    margin: 0;
+}
 
-        /* Header layout */
-        .header {
-            display: flex;
-            align-items: center;
-            border-bottom: 2px solid #000;
-            padding-bottom: 15px;
-            margin-bottom: 10px;
-        }
+/* Page */
+.letterpad {
+    width: 800px;
+    margin: auto;
+    background: #fffdf5;
+    padding: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-sizing: border-box;
 
-        .logo {
-            width: 130px;
-            height: auto;
-        }
+    display: flex;
+    flex-direction: column;
+    min-height: 1000px; /* screen */
+}
 
-        .header-text {
-            flex: 1;
-            margin-left: 15px;
-        }
+/* Header */
+.header {
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #000;
+    padding-bottom: 15px;
+    margin-bottom: 10px;
+}
 
-        .company-name {
-            font-size: 46px;
-            font-weight: bold;
-            letter-spacing: 1.5px;
-            color: red;
-            line-height: 1.1;
-            white-space: nowrap;
-        }
+.logo {
+    width: 130px;
+}
 
-        .right-lines {
-            text-align: right;
-            margin-top: 5px;
-        }
+.header-text {
+    flex: 1;
+    margin-left: 15px;
+}
 
-        .owner-name {
-            font-size: 18px;
-            font-weight: bold;
-        }
+.company-name {
+    font-size: 46px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    color: red;
+    line-height: 1.1;
+    white-space: nowrap;
+}
 
-        .designation {
-            font-size: 14px;
-        }
+.right-lines {
+    text-align: right;
+    margin-top: 5px;
+}
 
-        .date {
-            text-align: right;
-            margin: 20px 0;
-            font-weight: bold;
-        }
+.owner-name {
+    font-size: 18px;
+    font-weight: bold;
+}
 
-        .content {
-            border: 1px solid #ccc;
-            padding: 15px;
-            font-size: 16px;
-            min-height: 700px;
-            margin-bottom: 0px; /* space for footer */
-        }
+.designation {
+    font-size: 14px;
+}
 
-        /* Footer */
-        .footer {
-            border-top: 1px solid #000;
-            padding-top: 10px;
-            text-align: center;
-            font-size: 14px;
-            line-height: 1.6;
-            position: absolute;
-            bottom: 40px;
-            left: 40px;
-            right: 40px;
-            background: #fffdf5;
-        }
+.date {
+    text-align: right;
+    margin: 20px 0;
+    font-weight: bold;
+}
 
-        /* Floating Print Button */
-        #printBtn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            padding: 12px 24px;
-            font-size: 16px;
-            cursor: pointer;
-            z-index: 9999;
-            background: #d32f2f;
-            color: white;
-            border: none;
-            border-radius: 5px;
-        }
+/* Content */
+.content {
+    border: 1px solid #ccc;
+    padding: 15px;
+    font-size: 16px;
+    flex: 1; /* pushes footer down */
+    overflow: hidden;
+}
 
-        /* PRINT SETTINGS */
-        @media print {
-            #printBtn {
-                display: none !important;
-            }
+/* Footer */
+.footer {
+    border-top: 1px solid #000;
+    padding: 6px 0;
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.4;
+    margin-top: auto;
 
-            body {
-                background: white;
-                padding: 0;
-            }
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
 
-            .letterpad {
-                box-shadow: none;
-                width: 100%;
-                min-height: 100%;
-                margin: 0;
-                padding: 20mm;
-            }
+/* Print Button */
+#printBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 9999;
+    background: #d32f2f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
 
-            /* Fix header to top */
-            .header {
-                position: fixed;
-                top: 20mm;
-                left: 20mm;
-                right: 20mm;
-                background: white;
-            }
+/* PRINT */
+@media print {
+    @page {
+        size: A4;
+        margin: 10mm;
+    }
 
-            /* Fix footer to bottom */
-            .footer {
-                position: fixed;
-                bottom: 20mm;
-                left: 20mm;
-                right: 20mm;
-                background: white;
-            }
+    body {
+        background: white;
+        padding: 0;
+        margin: 0;
+    }
 
-            /* Push content below header */
-            .date {
-                margin-top: 120px;
-            }
+    #printBtn {
+        display: none;
+    }
 
-            .content {
-                margin-bottom: 5000px; /* space for footer */
-            }
-        }
-    </style>
+    .letterpad {
+        box-shadow: none;
+        width: 100%;
+        padding: 0;
+
+        /* EXACT printable height */
+        height: calc(297mm - 20mm); /* A4 minus margins */
+        min-height: auto;
+    }
+}
+</style>
 </head>
 <body>
 
 <div class="letterpad">
     <div class="header">
-        <!-- Logo -->
-        <img src="static/images/sangeetha builders logo.jpeg" alt="Logo" class="logo">
-
-        <!-- Text Block -->
+        <img src="static/images/sangeetha builders logo.jpeg" class="logo" alt="Logo">
         <div class="header-text">
             <div class="company-name">SANGEETHA BUILDERS</div>
             <div class="right-lines">
@@ -176,7 +158,7 @@
     </div>
 
     <div class="content" contenteditable="true">
-        <!-- Type your letter here -->
+
     </div>
 
     <div class="footer">
@@ -186,12 +168,11 @@
     </div>
 </div>
 
-<!-- Floating Print Button -->
 <button id="printBtn" onclick="window.print()">Print Letter</button>
 
 <script>
-    const today = new Date();
-    document.getElementById("todayDate").innerText = today.toLocaleDateString();
+const today = new Date();
+document.getElementById("todayDate").innerText = today.toLocaleDateString();
 </script>
 
 </body>
