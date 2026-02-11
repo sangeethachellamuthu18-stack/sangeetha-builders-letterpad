@@ -46,7 +46,7 @@
             letter-spacing: 1.5px;
             color: red;
             line-height: 1.1;
-            white-space: nowrap; /* keep in one line */
+            white-space: nowrap;
         }
 
         .right-lines {
@@ -65,7 +65,7 @@
 
         .date {
             text-align: right;
-            margin-bottom: 20px;
+            margin: 20px 0;
             font-weight: bold;
         }
 
@@ -73,8 +73,8 @@
             border: 1px solid #ccc;
             padding: 15px;
             font-size: 16px;
-            min-height: 500px;
-            margin-bottom: 160px; /* space for footer */
+            min-height: 700px;
+            margin-bottom: 0px; /* space for footer */
         }
 
         /* Footer */
@@ -109,7 +109,7 @@
         /* PRINT SETTINGS */
         @media print {
             #printBtn {
-                display: none !important; /* hide button when printing */
+                display: none !important;
             }
 
             body {
@@ -122,8 +122,19 @@
                 width: 100%;
                 min-height: 100%;
                 margin: 0;
+                padding: 20mm;
             }
 
+            /* Fix header to top */
+            .header {
+                position: fixed;
+                top: 20mm;
+                left: 20mm;
+                right: 20mm;
+                background: white;
+            }
+
+            /* Fix footer to bottom */
             .footer {
                 position: fixed;
                 bottom: 20mm;
@@ -132,8 +143,13 @@
                 background: white;
             }
 
+            /* Push content below header */
+            .date {
+                margin-top: 120px;
+            }
+
             .content {
-                margin-bottom: 160px; /* keep space for footer */
+                margin-bottom: 5000px; /* space for footer */
             }
         }
     </style>
